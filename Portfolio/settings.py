@@ -13,7 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import environ
-# from whitenoise import WhiteNoise
+from whitenoise import WhiteNoise
+import gunicorn.app.base
 
 
 env = environ.Env()
