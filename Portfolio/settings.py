@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import environ
-from whitenoise import WhiteNoise
+# from whitenoise import WhiteNoise
 
 
 env = environ.Env()
@@ -65,7 +65,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
    
     'django.middleware.security.SecurityMiddleware',
-    
+
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
