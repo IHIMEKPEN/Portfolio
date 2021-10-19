@@ -14,7 +14,7 @@ def home(request):
 #handle download fuctionality
 def download(request):
     base_dir=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    filename='Resume.pdf'
+    filename='IHIMEKPEN Osemudiamen Andrew-Resume.pdf'
     filepath =base_dir + '/Files/' + filename
     thefile=filepath
     filename=os.path.basename(thefile)
