@@ -5,3 +5,4 @@ then--python manage.py startapp nameofapp (create an app)
 then--python manage.py makemigrations(initialize database)
 then--python manage.py migrate (initialize database)
 
+then--pipreqs /Users/ANDRE/Desktop/finished/Heat/To-Do/ToDo
