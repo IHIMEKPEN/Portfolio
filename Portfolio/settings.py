@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import environ
-from whitenoise import WhiteNoise
-import gunicorn.app.base
+# from whitenoise import WhiteNoise
+# import gunicorn.app.base
 
 
 env = environ.Env()
@@ -45,7 +45,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['dredgreat.herokuapp.com','127.0.0.1']
 
@@ -168,6 +168,9 @@ EMAIL_PORT='587'
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'static/images')
 MEDIA_URL = '/images/'
+
+#  Add configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
