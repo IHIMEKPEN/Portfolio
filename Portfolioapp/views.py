@@ -24,6 +24,19 @@ def download(request):
     response['Content-Disposition']='Attachment;filename=%s'% filename     
     return response
 
+#handle download fuctionality
+def downloadalbum(request):
+    base_dir=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    filename='Lost Soul EP by Andre.zip'
+    filepath =base_dir + '/Files/' + filename
+    thefile=filepath
+    filename=os.path.basename(thefile)
+    chunk_size=8192
+    response=StreamingHttpResponse(FileWrapper(open(thefile,'rb'),chunk_size),content_type=mimetypes.guess_type(thefile)[0])
+    response['Content-Length']=os.path.getsize(thefile)
+    response['Content-Disposition']='Attachment;filename=%s'% filename     
+    return response
+
 #handle email fuctionality
 def sendmail(request):
     if request.method =="POST":
