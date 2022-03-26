@@ -4,6 +4,7 @@ from wsgiref.util import FileWrapper
 import mimetypes
 import os
 from django.core.mail import send_mail
+from django.contrib import messages
 
 
 # Create your views here.
@@ -14,7 +15,7 @@ def home(request):
 #handle download fuctionality
 def download(request):
     base_dir=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    filename='IHIMEKPEN Osemudiamen Andrew-Resume.pdf'
+    filename='Backend Developer Resume Osemudiamen.pdf'
     filepath =base_dir + '/Files/' + filename
     thefile=filepath
     filename=os.path.basename(thefile)
@@ -54,6 +55,7 @@ def sendmail(request):
             fail_silently=False,
         )
         context={}
+        messages.add_message(request, messages.INFO, 'Message sent successfully.')
     return redirect('home')
 
     
