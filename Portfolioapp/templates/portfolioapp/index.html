@@ -98,7 +98,7 @@
 
 				<div class="col-twelve">
 					{% if messages %}
-					<div class="alert alert-success" role="alert">
+					<div class="alert alert-success" role="alert" id="message_container">
 						<ul class="messages">
 							{% for message in messages %}
 							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -107,7 +107,7 @@
 							<li {% if message.tags %} class="{{ message.tags }}" {% endif %}
 								style="display: inline-block">
 								<p>{{message}}</p>
-								
+
 
 							</li>
 
@@ -352,7 +352,7 @@
 				<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Hire Me</a>
 
 				<a href="{% url 'download' %}" title="Download CV" class="button button-primary">Download CV</a>
-
+				<p>last updated 27/03/2022</p>
 			</div>
 		</div>
 
@@ -1016,7 +1016,14 @@
 	<script src="{% static 'js/plugins.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
 	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-
+	<script>
+		// suppose the `id` attribute of element is `message_container`.
+		var message_ele = document.getElementById("message_container");
+		setTimeout(function () {
+			message_ele.style.display = "none";
+		}, 3000);
+// Timeout is 3 sec, you can change it
+	</script>
 </body>
 
 </html>
